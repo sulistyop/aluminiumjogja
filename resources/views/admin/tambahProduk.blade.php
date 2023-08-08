@@ -12,22 +12,26 @@
         <form action="{{ route('tambahproduk.admin') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col">
+                <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nama</label>
                         <input type="text" name="name" class="form-control" id="" value="{{ old('name') }}" aria-describedby="" placeholder="Nama produk">
                       </div>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Kategori</label>
-                        <select class="form-control" name="category_id" id="">
-                          <option selected>Pilih Produk</option>
-                            @foreach ($kategori as $kategori)
-                            <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
-                            @endforeach
-                        </select>
-                      </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                      <label for="exampleFormControlSelect1">Kategori</label>
+                      <select class="form-control" name="category_id" id="">
+                        <option selected>Pilih Produk</option>
+                          @foreach ($kategori as $key => $kategori)
+                            @if (old('category_id') == $kategori->id)
+                                <option value="{{ $kategori->id }}" selected>{{ $kategori->name }}</option>
+                            @else
+                                <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
+                            @endif
+                          @endforeach
+                      </select>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -35,12 +39,6 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Harga</label>
                         <input type="text" name="price" class="form-control" value="{{ old('price') }}" id="rupiah2" aria-describedby="" placeholder="Rp.">
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Stok</label>
-                        <input type="string" name="quantity" class="form-control" value="{{ old('quantity') }}" id="" aria-describedby="" placeholder="Jumlah Produk">
                       </div>
                 </div>
             </div>

@@ -12,15 +12,12 @@
 
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                <img src="{{ url('uploads/'.$produk->image) }}" style="width: 100%; height: 30vw; padding: 0"
-                    class="card-img-top" alt="...">
+                <img src="{{ url('uploads/'.$produk->image) }}" style=" padding: 0"
+                class="card-img-top" alt="...">
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-
-
                 <h3>{{ $produk->name }}</h3>
                 <h5>Rp. {{ number_format($produk->price,0,",","." )}}</h5>
-
                 <table class="table mt-2">
                     <tbody>
                         <tr>

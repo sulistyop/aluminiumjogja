@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Krowak Art')
+@section('title','Aluminium Jogja')
 @section('content')
 
 
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-14 col-lg-6">
                 <div class="wrapper-top mt-5">
-                    <h2 class="font-weight-bold">SELAMAT DATANG DI KROWAK ART</h2>
+                    <h2 class="font-weight-bold">SELAMAT DATANG DI Aluminium Jogja</h2>
                     <h5>Belanja Mebel Lebih Murah dan Mudah</h5>
                     <a name="" id="" class="btn btn-primary btn-top mt-3"
                         href="{{ route('produk.index') }}" role="button">Belanja Sekarang</a>
@@ -23,7 +23,7 @@
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="showback">
-              <h4><i class="fa fa-angle-right"></i> Krowak Art Jogaja</h4>
+              <h4><i class="fa fa-angle-right"></i> Aluminium Jogja Jogaja</h4>
              
 			<div class="caption">
 				<h4>

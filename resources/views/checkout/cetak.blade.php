@@ -18,7 +18,7 @@
             border: 2px;
 		}
 	</style>
-                <h2>Krowak Art</h2>
+                <h2>Aluminium Jogja</h2>
                 <hr>
                 <h4>Pemesanan Sukses</h4>
                 <h6>Pemesanan anda sukses selanjutnya untuk melakukan pembayaran melalui transfer

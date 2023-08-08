@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-3">
         <div class="card" style="height: 10rem;">
             <div class="card-header">
                 User
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-3">
         <div class="card" style="height: 10rem;">
             <div class="card-header">
                 Produk
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-3">
         <div class="card" style="height: 10rem;">
             <div class="card-header">
                 Pendapatan
@@ -49,48 +49,50 @@
             Pemesanan Terbaru
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Tanggal/Waktu</th>
-                        <th scope="col">Nama Pemesan</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Detail</th>
-                        <th scope="col">Bayar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($order as $order)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $order->order_date }}</td>
-                        <td>{{ $order->user['name'] }}</td>
-                        <td>
-                            @if ($order->status == 'checkout')
-                                Belum Dibayar
-                            @else
-                                Sudah Dibayar
-                            @endif
-                        </td>
-                        <td>Rp. {{ number_format($order->total_price += $order->code,0,",",".") }}</td>
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="{{ route('pemesananDetail.admin',['slug'=>$order->slug]) }}" role="button">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <form action="{{ route('bayar', $order->id)}}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button type="submit" class="btn btn-primary">Bayar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div style="overflow-x:auto;">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal/Waktu</th>
+                            <th scope="col">Nama Pemesan</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Detail</th>
+                            <th scope="col">Bayar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($order as $order)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $order->order_date }}</td>
+                            <td>{{ $order->user['name'] }}</td>
+                            <td>
+                                @if ($order->status == 'checkout')
+                                    Belum Dibayar
+                                @else
+                                    Sudah Dibayar
+                                @endif
+                            </td>
+                            <td>Rp. {{ number_format($order->total_price += $order->code,0,",",".") }}</td>
+                            <td>
+                                <a name="" id="" class="btn btn-primary" href="{{ route('pemesananDetail.admin',['slug'=>$order->slug]) }}" role="button">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="{{ route('bayar', $order->id)}}" method="POST">
+                                    @csrf
+                                    @method('POST')
+                                    <button type="submit" class="btn btn-primary">Bayar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="card mt-2">
@@ -98,41 +100,43 @@
             Pemesanan Lunas
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Tanggal/Waktu</th>
-                        <th scope="col">Nama Pemesan</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Detail</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($orderLunas as $order)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $order->order_date }}</td>
-                        <td>{{ $order->user['name'] }}</td>
-                        <td>
-                            @if ($order->status == 'checkout')
-                                Belum Dibayar
-                            @else
-                                Sudah Dibayar
-                            @endif
-                        </td>
-                        <td>Rp. {{ number_format($order->total_price += $order->code,0,",",".") }}</td>
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="{{ route('pemesananDetail.admin',['slug'=>$order->slug]) }}" role="button">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </td>
-                       
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div style="overflow-x:auto;">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal/Waktu</th>
+                            <th scope="col">Nama Pemesan</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($orderLunas as $order)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $order->order_date }}</td>
+                            <td>{{ $order->user['name'] }}</td>
+                            <td>
+                                @if ($order->status == 'checkout')
+                                    Belum Dibayar
+                                @else
+                                    Sudah Dibayar
+                                @endif
+                            </td>
+                            <td>Rp. {{ number_format($order->total_price += $order->code,0,",",".") }}</td>
+                            <td>
+                                <a name="" id="" class="btn btn-primary" href="{{ route('pemesananDetail.admin',['slug'=>$order->slug]) }}" role="button">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </td>
+                        
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

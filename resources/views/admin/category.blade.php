@@ -19,14 +19,14 @@
                     </div>
 
                 </div>
-                <div class="col">
+                {{-- <div class="col">
                     <label for="exampleInputEmail1">Gambar Kategori</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="image" id="customFile">
                         <label class="custom-file-label" for="customFile">Pilih Gambar</label>
                       </div>
 
-                </div>
+                </div> --}}
             </div>
             <button type="submit" class="btn btn-primary w-100 mt-3">Simpan</button>
         </form>

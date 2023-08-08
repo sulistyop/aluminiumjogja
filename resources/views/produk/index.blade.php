@@ -6,7 +6,7 @@
 <div class="container mt-5">
     <div class="wrapper-produk">
         <div class="row">
-            <div class="col-12 col-md-3 col-lg-3">
+            <div class="col-12 col-md-3 col-lg-3 mb-3">
                 <h3 class="font-weight-bold">Kategori</h3>
                 <div class="card mt-5">
                     @php
@@ -41,13 +41,13 @@
                         </form>
                     </div>
                 </div>
-                <div class="row mt-5">
+                <div class="row mt-3">
                     @foreach($produk as $no => $data)
                         <div class="col-12 col-sm-6 col-lg-4 col-md-4 mb-4 card-product">
                             <a
                                 href="{{ route('detailproduk.index',['slug'=>$data->slug]) }}">
                                 <div class="card">
-                                    <img src="{{ url('/storage/'.$data->image) }}"
+                                    <img src="{{ url('uploads/'.$data->image) }}"
                                         class="card-img-top" alt="...">
                                     <div class="card-body">
 

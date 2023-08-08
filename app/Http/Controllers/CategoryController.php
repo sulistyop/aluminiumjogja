@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
-use App\Product;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -20,24 +17,19 @@ class CategoryController extends Controller
     public function index()
     {
         $kategori = Category::paginate(5);
-        return view('admin.category',compact('kategori'));
+        return view('admin.category', compact('kategori'));
     }
 
     public function tambahCategory(Request $request)
     {
         $request->validate([
             'name' => 'required|string',
-            'image'=>'required|image|mimes:jpeg,png,jpg|max:1024',
         ]);
-
-        $imageExtension = $request->image->extension();
-        $imageName = 'img_'.time().'.'.$imageExtension;
-        $imagePath = $request->image->storeAs('images',$imageName,'public_uploads');
 
         $kategori = new Category();
         $kategori->name = $request->name;
         $kategori->slug = Str::slug($request->name);
-        $kategori->image = $imagePath;
+        $kategori->image = null;
         $kategori->save();
 
         alert()->success('Tambah Kategori', 'Sukses');
@@ -47,9 +39,8 @@ class CategoryController extends Controller
 
     public function editForm($slug)
     {
-        $kategori = Category::where('slug',$slug)->first();
-
-        return view('admin.editCategory',compact('kategori'));
+        $kategori = Category::where('slug', $slug)->first();
+        return view('admin.editCategory', compact('kategori'));
     }
 
     public function updateCategory(Request $request, $slug)
@@ -58,31 +49,9 @@ class CategoryController extends Controller
             'name' => 'required|string',
         ]);
 
-        $kategori = Category::where('slug',$slug)->first();
-
-        if($request->image)
-        {
-
-            $imageExtension = $request->image->extension();
-            $imageName = 'img_'.time().'.'.$imageExtension;
-            $imagePath = $request->image->storeAs('images',$imageName,'public_uploads');
-
-            Storage::disk('public')->delete($kategori->image);
-
-            $kategori->name = $request->name;
-            $kategori->slug = Str::slug($request->name);
-            $kategori->image = $imagePath;
-
-            $kategori->save();
-
-        }else{
-
-            $kategori->name = $request->name;
-            $kategori->slug = Str::slug($request->name);
-
-            $kategori->save();
-        }
-
+        $kategori = Category::where('slug', $slug)->first();
+        $kategori->name = $request->name;
+        $kategori->slug = Str::slug($request->name);
 
         alert()->success('Ubah Kategori', 'Sukses');
 
@@ -91,14 +60,9 @@ class CategoryController extends Controller
 
     public function hapusCategory($slug)
     {
-        $kategori = Category::where('slug',$slug)->first();
-        Storage::disk('public')->delete($kategori->image);
-
-        Category::where('slug',$slug)->delete();
-
+        $kategori = Category::where('slug', $slug)->first();
+        Category::where('slug', $slug)->delete();
         alert()->error('Hapus Kategori', 'Sukses');
-
         return redirect()->route('tampilkategori.admin');
     }
-
 }

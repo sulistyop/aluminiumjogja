@@ -15,15 +15,14 @@
 
     <div class="row mt-5">
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-            <img src="{{ url('uploads/'.$produk->image) }}" style="width: 100%; height: 30vw; padding: 0"
-                class="card-img-top" alt="...">
+            <img src="{{ url('uploads/'.$produk->image) }}"
+                class="card-img-top img-thumbnail" alt="...">
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-
-
-            <h3><strong>{{ $produk->name }}</strong></h3>
+            <div class="mb-4 mt-4">
+                <h3><strong>{{ $produk->name }}</strong></h3>
+            </div>
             <h5>Rp. {{ number_format($produk->price,0,",","." )}}</h5>
-
             <table class="table mt-2">
                 <tbody>
                     <tr>
@@ -43,27 +42,21 @@
                         <td>{{ $produk->category['name'] }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Stok</th>
-                        <td>:</td>
-                        <td>{{ $produk->quantity }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Jumlah</th>
-                        <td>:</td>
-                        <td>
-                            <form action="{{ route('tambahkeranjang.index',['slug'=>$produk->slug]) }}" method="post">
-                                @csrf
-                                <input type="text" class="form-control text-center" name="total" value="1">
+                        <td colspan="3" align="center">
+                            <a class="btn btn-success"
+                                href="https://api.whatsapp.com/send?phone=6285282330303&text=Saya%20Ingin%20Konsultasi%20">
+                                <i aria-hidden="true" class="fab fa-whatsapp"></i> </span>
+                                <span class="elementor-button-text">Konsultasi Sekarang</span>
+                            </a>                        
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
             @unlessrole('admin')
                 <button type="submit" class="btn btn-primary w-100 mt-2"> <i class="fa fa-shopping-cart mr-2"></i> Tambah
                 Keranjang</button>
             @endunlessrole
-            </form>
-
             <nav class="mt-5">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Deskripsi</a>

@@ -25,17 +25,15 @@
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
 
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/style/stylesheet.css') }}" rel="stylesheet">
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <h3 class="d-inline">Krowak Art</h3>
+                    <h3 class="d-inline">Aluminium Jogja</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -90,8 +88,8 @@
 
         <div class="container mt-5">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                    <div class="card" style="width: 12rem;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 mb-5">
+                    <div class="card" >
                         <div class="card-header">
                             Navigasi
                         </div>
@@ -114,7 +112,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-9 col-lg-9">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9">
                     @yield('content')
                 </div>
             </div>
@@ -125,7 +123,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="text-center">
-                    <h6 class="d-inline">Afif Agus Puji Pangestu</h6>
+                    <h6 class="d-inline">Sulistyo Pradana</h6>
                     <i class="fa fa-copyright"></i>
                     <h6 class="d-inline">2023</h6>
                 </div>

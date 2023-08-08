@@ -23,7 +23,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/style/stylesheet.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="asset/font-awesome/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
         integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
         crossorigin="anonymous" />
@@ -35,10 +36,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top shadow" style="z-index: 1">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home.index') }}">
-                    <h3 class="d-inline">Krowak Art</h3>
+                    <h3 class="d-inline">Aluminium Jogja</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -168,7 +169,7 @@
             </div>
         </nav>
 
-        <main style="padding-top: 70px">
+        <main style="padding-top: 70px; z-index: -1">
             @yield('content')
         </main>
 
@@ -178,9 +179,9 @@
                     <div class="col-12 col-md-3 col-lg-3 mt-5">
                         <div class="footer-wrapper">
                             <a class="navbar-brand" href="{{ route('home.index') }}">
-                                <h3 class="font-weight-bold">Krowak Art</h3>
+                                <h3 class="font-weight-bold">Aluminium Jogja</h3>
                             </a>
-                            <p>©2023 Afif Agus Puji Pangestu</p>
+                            <p>©2023 Sulistyo Pradana</p>
                         </div>
                     </div>
 
@@ -202,22 +203,22 @@
                         <div class="footer-wrapper">
                             <h4>Ikuti Kami</h4>
 
+                            {{-- <a class="nav-item nav-link pl-0 {{ request()->is('/register') ? 'active' : '' }}"
+                                href="https://www.facebook.com/krowak.art.jogja"><i class="fab fa-facebook-square fa-lg"></i> Facebook</a> --}}
                             <a class="nav-item nav-link pl-0 {{ request()->is('/register') ? 'active' : '' }}"
-                                href="https://www.facebook.com/krowak.art.jogja"><i class="fab fa-facebook-square fa-lg"></i> Facebook</a>
-                            <a class="nav-item nav-link pl-0 {{ request()->is('/register') ? 'active' : '' }}"
-                                href="https://wa.me/6287712334515"><i class="fab fa-whatsapp fa-lg"></i> WhatsApp</a>
-                            <a class="nav-item nav-link pl-0 {{ request()->is('/register') ? 'active' : '' }}"
-                                href="https://www.instagram.com/krow_ak43/"><i class="fab fa-instagram fa-lg"></i> Instagram</a>
+                                href="https://wa.me/6285282330303"><i class="fab fa-whatsapp fa-lg"></i> WhatsApp</a>
+                            {{-- <a class="nav-item nav-link pl-0 {{ request()->is('/register') ? 'active' : '' }}"
+                                href="https://www.instagram.com/krow_ak43/"><i class="fab fa-instagram fa-lg"></i> Instagram</a> --}}
                         </div>
                     </div>
 
                     <div class="col-12 col-md-3 col-lg-3 mt-5">
-                        <div class="footer-wrapper">
+                        <div class="footer-wrapper text-center">
                             <h4>Lokasi</h4>
                             <div class="d-block">
                                 <div class="mapouter">
                                     <div class="gmap_canvas"><iframe width="300" height="150" id="gmap_canvas"
-                                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15804.615958422442!2d110.2490067!3d-7.9830282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x95c35a3078cf5921!2sKrowak+Art+Jogja!5e0!3m2!1sid!2sid!4v1562913934625!5m2!1sid!2sid"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.0889310866959!2d110.48816571012141!3d-7.744888110568972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5bee98bdfecb%3A0xee05617e65c75903!2sJASA%20KACA%20%26ALUMINIUM%20JOGJA%20SLEMAN%20BANTUL!5e0!3m2!1sen!2sid!4v1691480534467!5m2!1sen!2sid"
                                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                     </div>
                                 </div>

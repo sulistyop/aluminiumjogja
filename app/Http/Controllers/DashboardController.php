@@ -34,7 +34,6 @@ class DashboardController extends Controller
         $orderLunas = Order::where('status','=','lunas')->orderBy('order_date','desc')->take(4)->get();
 
 
-
         return view('admin.index',compact(['usercount','produkcount','order_total','order','orderLunas']));
     }
 }

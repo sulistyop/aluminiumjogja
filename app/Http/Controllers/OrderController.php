@@ -47,15 +47,6 @@ class OrderController extends Controller
     public function checkout(Request $request)
     {
 
-        // $user = User::where('id',Auth::user()->id)->first();
-
-        // if(empty($user->address or $user->city or $user->zipcode))
-        // {
-        //     alert()->error('Identitas Mohon Dilengkapi ', 'Error');
-
-        //     return redirect()->route('checkout.index');
-        // }
-
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
